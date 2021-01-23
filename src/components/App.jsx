@@ -8,7 +8,7 @@ import Footer from './Footer';
 import Header from './Header';
 import Home from './Home';
 import About from './About';
-
+import Article from "./Article";
 function App() {
   return (
     <div>
@@ -24,7 +24,8 @@ function App() {
             </Route>
             <Route path="/dashboard">
             </Route>
-            <Route path="/articles/:id"></Route>
+            <Route path="/articles/:id" component={Article}>
+            </Route>
           </div>
         </Switch>
         <Footer></Footer>      

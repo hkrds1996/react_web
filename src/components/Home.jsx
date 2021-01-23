@@ -5,7 +5,6 @@ function Home() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const apiUrl = "https://"+process.env.REACT_APP_APIURL+"/articles";
-    console.log(apiUrl);
     useEffect(() => {
         fetch(apiUrl)
           .then(res => res.json())
@@ -32,7 +31,7 @@ function Home() {
         return (
           <div className="row">
             {items.map(item => (
-                <div className="blog col-lg-6">
+                <div className="blog col-lg-3">
                     <h1>{item.title}</h1>
                     <p>{item.content.substring(0,500)}</p>  
                     <a href={"/articles/"+item._id}>Read More</a>                  

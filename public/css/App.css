@@ -31,7 +31,6 @@ header h1 {
 }
 
 footer {
-  position: relative;
   text-align: center;
   left: 0;
   bottom: 0;
@@ -53,8 +52,7 @@ footer p {
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: 240px;
-  height: 500px;
+  height: 400px;
   margin: 16px;
 }
 
