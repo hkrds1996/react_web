@@ -29,9 +29,9 @@ function Home() {
         return <div>Loading...</div>;
       } else {
         return (
-          <div className="row">
+          <div className="row  justify-content-center">
             {items.map(item => (
-                <div className="blog col-lg-3">
+                <div className="blog col-lg-3 ">
                     <h1>{item.title}</h1>
                     <p>{item.content.substring(0,500)}</p>  
                     <a href={"/articles/"+item._id}>Read More</a>                  

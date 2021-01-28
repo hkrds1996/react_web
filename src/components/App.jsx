@@ -9,6 +9,8 @@ import Header from './Header';
 import Home from './Home';
 import About from './About';
 import Article from "./Article";
+import Write from "./Write";
+import Logout from './Logout';
 function App() {
   return (
     <div>
@@ -22,10 +24,10 @@ function App() {
             <Route path="/about">
               <About></About>
             </Route>
-            <Route path="/dashboard">
-            </Route>
             <Route path="/articles/:id" component={Article}>
             </Route>
+            <Route path="/write" component={Write}></Route>
+            <Route path="/logout" component={Logout}></Route>
           </div>
         </Switch>
         <Footer></Footer>      
