@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-import TextareaAutosize from 'react-textarea-autosize';
 import ReactMarkdown from 'react-markdown'
+import CodeBlock from '../components/CodeBlock'
 
 function Article(props) {
   const [error, setError] = useState(null);
@@ -41,14 +41,10 @@ function Article(props) {
       shouldDisable = false;
     }
     return (
-      <div className="container mt-5">
-        <div className="card">
-          <div className="card-body">
-              <div className="form-group">
-                <ReactMarkdown children={article.content} />
-              </div>
+      <div className="container">
+          <div className="blog">
+                <ReactMarkdown  className="markDown" children={article.content}  renderers = {{code: CodeBlock}}/>
           </div>
-        </div>
       </div>
     );
   }

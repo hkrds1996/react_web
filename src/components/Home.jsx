@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import ReactMarkdown from 'react-markdown'
 function Home() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -31,8 +31,8 @@ function Home() {
         return (
           <div className="row  justify-content-center">
             {items.map(item => (
-                <div className="blog col-lg-3 ">
-                    <ReactMarkdown children ={item.content.substring(0,500)}></ReactMarkdown>
+                <div className="blog col-lg-3 justify-content-center">
+                    <ReactMarkdown className="article" children ={item.content.substring(0,500)}></ReactMarkdown>
                     <a href={"/articles/"+item._id}>Read More</a>                  
                 </div>                              
             ))}
