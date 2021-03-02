@@ -48,7 +48,7 @@ function Login(params) {
                                     <label for="password">Password</label>
                                     <input type="password" className="form-control" name="password" value={user.password} onChange={e => setUser({ ...user, password: e.target.value })}  />
                                 </div>
-                                <button type="submit" className="btn btn-dark">Login</button>
+                                <button type="submit" className="btn btn-dark">Login</button>                                
                             </form>
                         </div>
                     </div>

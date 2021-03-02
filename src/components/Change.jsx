@@ -6,6 +6,7 @@ function Change(props) {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies(['sessionID']);
+    const [submitButton, setSubmitButton] = useState("");
     const articleId = props.match.params.id;
     const [article, setArticle] = useState({
         sessionID: cookies.sessionID,
@@ -15,6 +16,12 @@ function Change(props) {
     const apiUrl = "https://" + process.env.REACT_APP_APIURL + "/articles/" + articleId;
     const submit = e => {
         e.preventDefault();
+        let type = "";
+        if(submitButton === "button1"){
+            type = "PATCH";
+        }else{
+            type = "DELETE";
+        }
         let formBody = [];
         for (let property in article) {
             let encodedKey = encodeURIComponent(property);
@@ -23,7 +30,7 @@ function Change(props) {
         }
         formBody = formBody.join("&");
         fetch(apiUrl, {
-            method: 'PATCH',
+            method: [type],
             body: formBody,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
         })
@@ -36,7 +43,7 @@ function Change(props) {
     }
     useEffect(() => {
         if (articleId === "newArticle") {
-
+            
         } else {
             fetch(apiUrl)
                 .then(res => res.json())
@@ -68,7 +75,8 @@ function Change(props) {
                         <label for="content">Content</label>
                         <TextareaAutosize name="content" className="form-control textareaAutosize" defaultValue={article.content}
                             onChange={e => setArticle({ ...article, content: e.target.value })}></TextareaAutosize>
-                        <button type="submit" className="btn btn-dark somemargin">Update</button>
+                        <button type="submit" className="btn btn-dark somemargin" onClick={()=>setSubmitButton('button1')}>Update</button>
+                        <button type="submit" onClick={()=>setSubmitButton('button2')} className="btn somemargin">Delete</button>
                     </div>
                 </form>
             </div>
