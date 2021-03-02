@@ -32,8 +32,7 @@ function Home() {
           <div className="row  justify-content-center">
             {items.map(item => (
                 <div className="blog col-lg-3 ">
-                    <h1>{item.title}</h1>
-                    <p>{item.content.substring(0,500)}</p>  
+                    <ReactMarkdown children ={item.content.substring(0,500)}></ReactMarkdown>
                     <a href={"/articles/"+item._id}>Read More</a>                  
                 </div>                              
             ))}

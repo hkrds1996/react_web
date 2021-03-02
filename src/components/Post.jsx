@@ -1,6 +1,12 @@
-import { React, useState } from "react";
+import { React, useState,useEffect } from "react";
 import { useCookies } from "react-cookie";
-import TextareaAutosize from 'react-textarea-autosize';
+import Change from './Change';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+  } from "react-router-dom";
+
 function Post(params) {
     const [cookies] = useCookies(['sessionID']);
     const [article, setArticle] = useState({
@@ -26,33 +32,61 @@ function Post(params) {
             })
                 .then(res => res.json())
                 .then(json => {
-                    if(json.code===0){
-                      window.location.reload(false);
+                    if (json.code === 0) {
+                        window.location.reload(false);
                     }
                 })
         }
     }
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        fetch(apiUrl)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setIsLoaded(true);
+                    setItems(result);
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
+    }, [])
 
-    return (
-        <div className="container mt-5">
-            <h1>New Article</h1>
-            <div className="card">
-                <div className="card-body">
-                    <form onSubmit={submit}>
-                        <div className="form-group">
-                            <label for="title">Title</label>
-                            <input className="form-control textareaAutosize" value={article.username} name="title" onChange={e => setArticle({ ...article, title: e.target.value })} />
-                        </div>
-                        <div className="form-group">
-                            <label for="content">Content</label>
-                            <TextareaAutosize className="form-control textareaAutosize" name="content" onChange={e => setArticle({ ...article, content: e.target.value })}></TextareaAutosize>
-                        </div>
-                        <button type="submit" className="btn btn-dark">Post</button>
-                    </form>
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+        return <div>Loading...</div>;
+    } else {
+        return (
+            <div className="container">                
+                <div className="row">
+                    <div className="col-md-3 col-lg-2 bd-sidebar">
+                        <a  className="list-group-item" href={"/write/newArticle"}>New Article</a>
+                        <ul className = "list-group">
+                            {items.map(item => (
+                                <li  className="list-group-item">
+                                    <a href={"/write/" + item._id}>{item.title}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="col-md-9 col-lg-10 order-md-last">
+                        <Switch>
+                        <Route path="/write/:id" component={Change}></Route>                        
+                        </Switch>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
+
 }
 
 export default Post;
