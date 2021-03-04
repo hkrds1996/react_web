@@ -11,25 +11,23 @@ import About from './About';
 import Article from "./Article";
 import Write from "./Write";
 import Logout from './Logout';
-import createHistory from 'history/createHashHistory'
-const history = createHistory()
 function App() {
   return (
     <div>
-    <Router history={history} basename="/react_web">
+    <Router>
         <Header></Header>
         <Switch>
           <div className="switch app">
-            <Route path="/">
+            <Route exact path="/">
               <Home className="home"></Home>
             </Route>
-            <Route path="/react_web/about">
+            <Route path="/about">
               <About></About>
             </Route>
-            <Route path="/react_web/articles/:id" component={Article}>
+            <Route path="/articles/:id" component={Article}>
             </Route>
-            <Route path="/react_web/write" component={Write}></Route>
-            <Route path="/react_web/logout" component={Logout}></Route>
+            <Route path="/write" component={Write}></Route>
+            <Route path="/logout" component={Logout}></Route>
           </div>
         </Switch>
         <Footer></Footer>      

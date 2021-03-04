@@ -24,7 +24,7 @@ function Logout() {
             .then(json => {
                 if (json.code === 0) {
                     removeCookie("sessionID");
-                    history.push("/");
+                    history.push("/react_web/#");
                 }
             });                
     }
