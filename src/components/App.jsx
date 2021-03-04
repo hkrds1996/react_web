@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
@@ -16,7 +16,7 @@ const history = createHistory()
 function App() {
   return (
     <div>
-    <Router history={history}>
+    <Router history={history} basename="/react_web"/>
         <Header></Header>
         <Switch>
           <div className="switch app">
