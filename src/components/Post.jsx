@@ -37,11 +37,11 @@ function Post(params) {
             <div className="container">                
                 <div className="row">
                     <div className="col-md-3 col-lg-2 bd-sidebar">
-                        <a  className="list-group-item" href={"/react_web/#/write/newArticle"}>New Article</a>
+                        <Link to={"/react_web/#/write/newArticle"} className="list-group-item">New Article</Link>
                         <ul className = "list-group">
                             {items.map(item => (
                                 <li  className="list-group-item">
-                                    <a href={"/react_web/#/write/" + item._id}>{item.title}</a>
+                                    <Link to={"/react_web/#/write/" + item._id}>{item.title}</Link>
                                 </li>
                             ))}
                         </ul>
