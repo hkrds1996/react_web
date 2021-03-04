@@ -2,7 +2,8 @@ import { React, useState,useEffect } from "react";
 import Change from './Change';
 import {
     Switch,
-    Route
+    Route,
+    Link
   } from "react-router-dom";
 
 function Post(params) {
