@@ -7,7 +7,8 @@ function Change(props) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies(['sessionID']);
     const [submitButton, setSubmitButton] = useState("");
-    const articleId = props.match.params.id;
+    const [articleId, setArticleId] = useState("");
+    setArticleId(props.match.params.id);
     const [article, setArticle] = useState({
         sessionID: cookies.sessionID,
         title: "",
