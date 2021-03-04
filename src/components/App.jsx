@@ -16,7 +16,7 @@ const history = createHistory()
 function App() {
   return (
     <div>
-    <Router history={history} basename="/react_web"/>
+    <Router history={history} basename="/react_web">
         <Header></Header>
         <Switch>
           <div className="switch app">
