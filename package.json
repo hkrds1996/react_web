@@ -106,6 +106,7 @@
       "last 1 safari version"
     ]
   },
+  "homepage": "https://hkrds1996.github.io/react_web/",
   "devDependencies": {
     "envify": "^4.1.0",
     "rollup-plugin-commonjs": "^10.1.0",

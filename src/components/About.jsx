@@ -15,7 +15,7 @@ function About() {
         <table>
         <tbody>
             <tr>
-                <td><img src="images/self.png" alt="personal image"/></td>
+                <td><img src="../images/self.png" alt="personal image"/></td>
                 <td>
                     <h1>Kangrong Hu</h1>
                     <p>A graducate student studying on the <em><strong>University of Southern California</strong></em>.

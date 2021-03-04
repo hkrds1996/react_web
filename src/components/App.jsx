@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
@@ -11,23 +11,25 @@ import About from './About';
 import Article from "./Article";
 import Write from "./Write";
 import Logout from './Logout';
+import createHistory from 'history/createHashHistory'
+const history = createHistory()
 function App() {
   return (
     <div>
-    <Router>
+    <Router history={history}>
         <Header></Header>
         <Switch>
           <div className="switch app">
-            <Route exact path="/">
+            <Route path="/">
               <Home className="home"></Home>
             </Route>
-            <Route path="/about">
+            <Route path="/react_web/about">
               <About></About>
             </Route>
-            <Route path="/articles/:id" component={Article}>
+            <Route path="/react_web/articles/:id" component={Article}>
             </Route>
-            <Route path="/write" component={Write}></Route>
-            <Route path="/logout" component={Logout}></Route>
+            <Route path="/react_web/write" component={Write}></Route>
+            <Route path="/react_web/logout" component={Logout}></Route>
           </div>
         </Switch>
         <Footer></Footer>      
