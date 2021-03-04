@@ -49,7 +49,7 @@ function Post(params) {
                     </div>
                     <div className="col-md-9 col-lg-10 order-md-last">
                         <Switch>
-                        <Route path="/write/:id" component={Change}></Route>                        
+                            <Route path="/write/:id" exact component={Change}></Route>                        
                         </Switch>
                     </div>
                 </div>

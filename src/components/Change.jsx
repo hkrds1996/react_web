@@ -67,12 +67,12 @@ function Change(props) {
             <div className="card-body">
                 <form onSubmit={submit}>
                     <div className="form-group">
-                        <label for="title">Title</label>
+                        <label>Title</label>
                         <TextareaAutosize name="title" className="form-control textareaAutosize " defaultValue={article.title}
                             onChange={e => setArticle({ ...article, title: e.target.value })}></TextareaAutosize>
                     </div>
                     <div className="form-group">
-                        <label for="content">Content</label>
+                        <label>Content</label>
                         <TextareaAutosize name="content" className="form-control textareaAutosize" defaultValue={article.content}
                             onChange={e => setArticle({ ...article, content: e.target.value })}></TextareaAutosize>
                         <button type="submit" className="btn btn-dark somemargin" onClick={()=>setSubmitButton('button1')}>Update</button>
