@@ -1,0 +1,105 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background: #eee;
+}
+
+header{
+  background-color: cadetblue;
+}
+
+header h1 {
+  color: cadetblue;
+  font-family: "McLaren", cursive;
+}
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  background-color: cadetblue;
+}
+
+.navbar-nav li a:hover {
+  color: #eee !important;
+}
+
+footer {
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: cadetblue;
+}
+
+footer p {
+  color: #ccc;
+  margin-bottom: 16px;
+  margin-top: -16px;
+}
+
+.switch {
+  padding: 2rem 10rem;
+  position: relative;
+}
+
+.textareaAutosize{
+  background-color: #ccc;
+}
+
+.blog {
+  background: #f5b042;  
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 20px;
+  margin: 16px;  
+}
+
+.blog h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+
+.blog p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.blog a{
+  color: bisque;
+}
+.blog a:hover{
+  color: black;
+}
+.article {
+  padding: 0px 0.2rem;
+}
+.markDown {
+  padding: 0px 1rem;
+}
+.cv {
+  white-space: pre-wrap;
+}
+
+.cv img {
+  width: 200px;
+  height: 200px;
+}
+.app{
+  min-height: 85vh;
+}
+
+.somemargin{
+  margin-top: 20px;
+}
