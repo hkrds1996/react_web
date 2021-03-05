@@ -7,14 +7,13 @@ function Change(props) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies(['sessionID']);
     const [submitButton, setSubmitButton] = useState("");
-    const [articleId, setArticleId] = useState("");
-    setArticleId(props.match.params.id);
+    const [articleId, setArticleId] = useState("");    
     const [article, setArticle] = useState({
         sessionID: cookies.sessionID,
         title: "",
         content: ""
     });
-    const apiUrl = "https://" + process.env.REACT_APP_APIURL + "/articles/" + articleId;
+    let apiUrl = "";   
     const submit = e => {
         e.preventDefault();
         let type = "";
@@ -43,6 +42,8 @@ function Change(props) {
             })
     }
     useEffect(() => {
+        setArticleId(props.match.params.id);
+        apiUrl= "https://" + process.env.REACT_APP_APIURL + "/articles/" + articleId; 
         if (articleId === "newArticle") {
             
         } else {

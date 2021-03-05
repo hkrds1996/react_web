@@ -33,7 +33,7 @@ function Home() {
             {items.map(item => (
                 <div className="blog col-lg-3 justify-content-center">
                     <ReactMarkdown className="article" children ={item.content.substring(0,500)}></ReactMarkdown>
-                    <a href={"/react_web/#/articles/"+item._id}>Read More</a>                  
+                    <a href={"/#/articles/"+item._id}>Read More</a>                  
                 </div>                              
             ))}
           </div>
