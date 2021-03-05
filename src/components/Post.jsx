@@ -1,9 +1,11 @@
 import { React, useState,useEffect } from "react";
 import Change from './Change';
 import {
+    HashRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    useHistory
   } from "react-router-dom";
 
 function Post(params) {
@@ -11,6 +13,7 @@ function Post(params) {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
+    const history = useHistory();
     useEffect(() => {
         fetch(apiUrl)
             .then(res => res.json())
@@ -38,7 +41,7 @@ function Post(params) {
             <div className="container">                
                 <div className="row">
                     <div className="col-md-3 col-lg-2 bd-sidebar">
-                        <Link to={"/write/newArticle"} className="list-group-item">New Article</Link>
+                        <Link to={"/write/newArticle"} className="list-group-item" >New Article</Link>
                         <ul className = "list-group">
                             {items.map(item => (
                                 <li  className="list-group-item">
@@ -49,7 +52,7 @@ function Post(params) {
                     </div>
                     <div className="col-md-9 col-lg-10 order-md-last">
                         <Switch>
-                            <Route path="/write/:id" exact component={Change}></Route>                        
+                            <Route path="/write/:id"  component={(props)=><Change {...props} testid = {true}></Change>}></Route>                        
                         </Switch>
                     </div>
                 </div>
